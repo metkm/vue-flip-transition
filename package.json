@@ -1,6 +1,6 @@
 {
   "name": "vue-flip-transition",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "author": "Sibyl666",
   "license": "MIT",
   "types": "./src/types/vue-flip-transition.d.ts",
