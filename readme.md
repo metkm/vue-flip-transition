@@ -1,7 +1,7 @@
 # How to use
 
 Add it to your main.ts in src folder
-```vue
+```javascript
 import Flipper from "vue-flip-transition"
 import { createApp } from "vue"
 import App from "./App.vue"
