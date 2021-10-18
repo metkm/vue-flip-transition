@@ -15,7 +15,7 @@ Now you can use ```<Flipper> </Flipper>``` tag everywhere
 # Usage
 flipKey is required. When flipkey is changed it will trigger an animation between elements that has ```data-key``` attribute
 data-key attribute should match between elements that you want to make a transition
-```javascript
+```vue
 <script setup lang="ts">
 import { ref } from "vue";
 
