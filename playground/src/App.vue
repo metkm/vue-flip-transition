@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import Sleep from "./components/Sleep.vue";
 
 const update = ref(false);
 const updateValue = () => {
@@ -10,7 +11,27 @@ setInterval(updateValue, 5000)
 </script>
 
 <template>
-  <Flipper :flipKey="update">
+  <suspense>
+    <Flipper :flipKey="update">
+      <Sleep />
+
+      <div v-if="update">
+        <div class="num green" data-key="1">1</div>
+        <div class="num red" data-key="2">2</div>
+      </div>
+      <div v-else>
+        <div style="display: flex;">
+          <div class="num red" data-key="2">2</div>
+          <div class="num green" data-key="1">1</div>
+        </div>
+      </div>
+    </Flipper>
+    <template #fallback>
+      <p> test </p>
+    </template>
+  </suspense>
+
+  <!-- <Flipper :flipKey="update">
     <div v-if="update">
       <div class="num green" data-key="1">1</div>
       <div class="num red" data-key="2">2</div>
@@ -21,7 +42,7 @@ setInterval(updateValue, 5000)
         <div class="num green" data-key="1">1</div>
       </div>
     </div>
-  </Flipper>
+  </Flipper> -->
 </template>
 
 <style>
