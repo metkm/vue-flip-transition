@@ -12,6 +12,8 @@
     "dist",
     "global.d.ts"
   ],
+  "main": "./dist/vue-flip-transition.umd.js",
+  "module": "./dist/vue-flip-transition.es.js",
   "exports": {
     ".": {
       "import": "./dist/vue-flip-transition.es.js",
