@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import typescript from "rollup-plugin-typescript2";
 
 export default defineConfig({
   plugins: [vue()],
@@ -17,7 +16,6 @@ export default defineConfig({
           vue: "Vue"
         }
       },
-      plugins: [typescript()]
     }
   }  
 })
