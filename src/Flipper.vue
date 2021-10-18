@@ -17,33 +17,31 @@ const getElementStates = () => {
   return state
 }
 
-onMounted(() => {
-  watch(flipKey, () => {
-    let state = getElementStates();
-    nextTick(() => {
-      let newState = getElementStates();
-      let elements = getElementArray("[data-key]");
-      elements.forEach(element => {
-        let key = element.getAttribute("data-key")!;
-        var elOldState = state[key];
-        var elNewState = newState[key];
-        if (!elOldState || !elNewState) return;
+watch(flipKey, () => {
+  let state = getElementStates();
+  nextTick(() => {
+    let newState = getElementStates();
+    let elements = getElementArray("[data-key]");
+    elements.forEach(element => {
+      let key = element.getAttribute("data-key")!;
+      var elOldState = state[key];
+      var elNewState = newState[key];
+      if (!elOldState || !elNewState) return;
 
-        // invert values
-        var y = elOldState.y - elNewState.y;
-        var x = elOldState.x - elNewState.x;
+      // invert values
+      var y = elOldState.y - elNewState.y;
+      var x = elOldState.x - elNewState.x;
 
-        element.animate([
-          {
-            transform: `translate(${x}px, ${y}px)`,
-            width: `${elOldState.width}px`,
-            height: `${elOldState.height}px`
-          }, {}
-        ], { duration: 500, easing: "ease-in-out" })
-      })
+      element.animate([
+        {
+          transform: `translate(${x}px, ${y}px)`,
+          width: `${elOldState.width}px`,
+          height: `${elOldState.height}px`
+        }, {}
+      ], { duration: 500, easing: "ease-in-out" })
     })
-  });
-})
+  })
+});
 </script>
 
 <template>
