@@ -1,8 +1,9 @@
 {
   "name": "vue-flip-transition",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "author": "Sibyl666",
   "license": "MIT",
+  "types": "./global.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/sibyl666/vue-flip-transition.git"
