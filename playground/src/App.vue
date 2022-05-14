@@ -1,57 +1,32 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import Sleep from "./components/Sleep.vue";
 
 const update = ref(false);
 const updateValue = () => {
   update.value = !update.value
 }
-
-setInterval(updateValue, 5000)
 </script>
 
 <template>
-  <suspense>
-    <Flipper :flipKey="update">
-      <Sleep />
-
-      <div v-if="update">
-        <div class="num green" data-key="1">1</div>
-        <div class="num red" data-key="2">2</div>
-      </div>
-      <div v-else>
-        <div style="display: flex;">
-          <div class="num red" data-key="2">2</div>
-          <div class="num green" data-key="1">1</div>
-        </div>
-      </div>
-    </Flipper>
-    <template #fallback>
-      <p> test </p>
-    </template>
-  </suspense>
-
-  <!-- <Flipper :flipKey="update">
+  <button @click="updateValue">Update value</button>
+  <Flipper :flipKey="update">
     <div v-if="update">
-      <div class="num green" data-key="1">1</div>
+      <div class="num green" style="width: 100%;" data-key="1">1</div>
       <div class="num red" data-key="2">2</div>
     </div>
     <div v-else>
-      <div style="display: flex;">
+      <div style="display: flex; justify-content: center;" >
         <div class="num red" data-key="2">2</div>
         <div class="num green" data-key="1">1</div>
       </div>
     </div>
-  </Flipper> -->
+  </Flipper>
 </template>
 
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  width: 100%;
 }
 
 .num {
